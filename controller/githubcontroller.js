@@ -3,14 +3,14 @@ const router = express.Router();
 const axios = require('axios');
 
 // INDEX PAGE
-// router.get('/', async (req, res) => {
-//     res.render('index.ejs')
-// })
+router.get('/', async (req, res) => {
+    res.render('index.ejs')
+})
 
 // SHOW RESULTS FROM API SEARCH
 router.get('/show', async (req, res) => {
     const query = req.query['query']
-    const querySplit = query.split('')
+    const querySplit = query.split('/')
     const user = querySplit[1]
     const repos = querySplit[2]
     axios.get(`https://api.github.com/repos/${user}/${repos}/pulls`).then((response) => {
@@ -20,7 +20,7 @@ router.get('/show', async (req, res) => {
         let pullResults = []
         const apiResponse = response;
         res.render('show.ejs', {
-            apiReponse: apiResponse.data, // response from search
+            apiResponse: apiResponse.data, // response from search
             openPulls: pullResults, // all pulls for user
             user: user, // username
             repos: repos // their repos

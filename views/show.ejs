@@ -10,21 +10,17 @@
 
 <body>
     <div>
-        <h1>Github API Show Page</h1>
-            <ul>
-                <li><label><%= user %>'s <%= repos %></label>
-
-                <!-- List of open Pull requests -->
-                <li><label>Open Pull requests for this Repo: </label><br/>
-                <% for(let i = 0; i < openPulls.length; i++) { %>
-                    Pull Name: <%= openPulls[i].title %>
-                    Opened by: <% openPulls[i].user.login %> <!-- The user that opened the pull request -->
-               <% } %>
-                <form action="/githubapi/details" method="GET" name="query">
-                    <button type="submit">View More Details</button>
-                </form>
-                </li>
-            </ul>
+        <b><h1><%= user %>'s <%= repos %></h1></b>
+            <!-- List of open Pull requests -->
+            <h4>Open Pull requests for this Repo: </h4><br/>
+                <% for(let i = 0; i < apiResponse.length; i++) { %>
+                    <b>Pull Name:</b> <%= apiResponse[i].title %><br/>
+                    <b>Status:</b> <%= apiResponse[i].state %><br/>
+                    <b>Opened by:</b> <% apiResponse[i].user.login %><br/><!-- The user that opened the pull request -->
+                        <form action="/githubapi/details" method="GET" name="query" value="<%= apiResponse[i].url %>">
+                            <button type="submit">See this Pull Request</button>
+                        </form>
+                <% } %> <br />
     </div>
 </body>
 </html>

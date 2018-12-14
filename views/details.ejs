@@ -13,12 +13,12 @@
 <div>
     <h1>Pull Request Details</h1>
     <!-- The user that opened the pull request -->
-    <li><%= queryResponse.user.login %>'s pull request<br/>
+    <li><%= queryResponse.head.user.login %>'s pull request<br/>
     <!-- Number of commits in specific pull request --> 
-    <label>Commits: </label> <%= queryResponse.commits_url %>
+    <label>Number of Commits: </label> <%= queryResponse.commits %>
 
     <!-- Number of comments on specific pull request -->
-    <li><label>Comments: </label><%= queryResponse.comments_url %></li>
+    <li><label>Number of Comments: </label><%= queryResponse.comments %></li>
 </div>
 
 </body>
