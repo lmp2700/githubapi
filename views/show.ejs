@@ -15,7 +15,7 @@
                 <li><label><%= user %>'s <%= repos %></label>
 
                 <!-- List of open Pull requests -->
-                <li><label>Open Pull requests for this Repo: </label><p>
+                <li><label>Open Pull requests for this Repo: </label><br/>
                 <% for(let i = 0; i < openPulls.length; i++) { %>
                     Pull Name: <%= openPulls[i].title %>
                     Opened by: <% openPulls[i].user.login %> <!-- The user that opened the pull request -->
