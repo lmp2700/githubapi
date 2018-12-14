@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Github API Show Page</title>
+</head>
+
+<body>
+    <div>
+        <h1>Github API Show Page</h1>
+            <ul>
+                <li><label><%= user %>'s <%= repos %></label>
+
+                <!-- List of open Pull requests -->
+                <li><label>Open Pull requests for this Repo: </label><p>
+                <% for(let i = 0; i < openPulls.length; i++) { %>
+                    Pull Name: <%= openPulls[i].title %>
+                    Opened by: <% openPulls[i].user.login %> <!-- The user that opened the pull request -->
+               <% } %>
+                <form action="/githubapi/details" method="GET" name="query">
+                    <button type="submit">View More Details</button>
+                </form>
+                </li>
+            </ul>
+    </div>
+</body>
+</html>
+

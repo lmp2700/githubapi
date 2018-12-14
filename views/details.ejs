@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Github API Details Page</title>
+</head>
+
+<body>
+
+<div>
+    <h1>Pull Request Details</h1>
+    <!-- The user that opened the pull request -->
+    <li><%= queryResponse.user.login %>'s pull request:
+    <p>
+    <!-- Number of commits in specific pull request --> 
+    <label>Commits: </label> <%= queryResponse.commits_url %>
+
+    <!-- Number of comments on specific pull request -->
+    <li><label>Comments: </label><%= queryResponse.comments_url %></li>
+</div>
+
+</body>
+
+</html>
